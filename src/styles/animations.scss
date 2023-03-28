@@ -6,10 +6,6 @@
     animation: moveBlock 1 1s forwards;
 }
 
-.toCartAnimationScaleS {
-    animation: scaleImgS 1 1s forwards;
-}
-
 .toCartAnimationMoveS {
     animation: moveBlockS 1 1s forwards;
 }
@@ -43,8 +39,7 @@
     }
 
     to {
-        transform: translate(144%, -33%);
-        ;
+        transform: translate(144%, -27%);
         opacity: 0.2;
     }
 }

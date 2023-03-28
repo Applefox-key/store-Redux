@@ -12,10 +12,10 @@ export const toCartAnimation = (item) => {
     el = document.getElementById("imgS" + item.id);
     const el1 = document.getElementById("imgDivS" + item.id);
     el1.classList.add("toCartAnimationMoveS");
-    el.classList.add("toCartAnimationScaleS");
+    el.classList.add("toCartAnimationScale");
     setTimeout(() => {
       el1.classList.remove("toCartAnimationMoveS");
-      el.classList.remove("toCartAnimationScaleS");
+      el.classList.remove("toCartAnimationScale");
     }, 1000);
   }
 };
