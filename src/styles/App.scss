@@ -1,0 +1,117 @@
+.wrapper {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+
+  header {
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 10px;
+    background-color: white;
+    position: sticky;
+    top: -1px;
+    z-index: 900;
+
+    .hoverRose {
+      &:hover {
+        color: #FD8583;
+      }
+    }
+
+    .logo {
+      width: 50px;
+    }
+
+    li {
+      list-style-type: none
+    }
+
+  }
+
+}
+
+.body-no-scroll {
+  overflow: hidden;
+}
+
+.p-40 {
+  padding: 40px;
+}
+
+
+
+.hoverGreen {
+  cursor: pointer;
+
+  &:hover {
+    color: #94C852;
+    transition: 3ms;
+  }
+
+}
+
+.filler {
+  width: 100%;
+  border-bottom: 1px dotted lightgray;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+
+.btnOne {
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  // height: 80%;
+  color: rgb(170, 168, 168);
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: medium;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    box-shadow: 1px 1px 4px rgb(147, 115, 120);
+  }
+}
+
+
+.greenText {
+  color: #87C20A;
+}
+
+.green_btn {
+  width: 245px;
+  height: 55px;
+
+  margin-top: 1rem;
+  background: #9DD458;
+  border-radius: 18px;
+  border: none;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  &:hover {
+    box-shadow: 1px 1px 4px rgb(92, 139, 68);
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 0;
+    margin-top: 50px;
+
+  }
+}

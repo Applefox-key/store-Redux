@@ -1,0 +1,52 @@
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 550px;
+  background: white;
+  box-shadow: -10px 4px 24px black;
+  padding: 30px;
+}
+
+.btnBuy {
+  margin-top: 2rem;
+  height: 50px;
+  width: 100%;
+  background: #94C852;
+  background: #9DD458;
+  border-radius: 18px;
+  border: none;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 19px;
+  text-align: center;
+
+  &:hover {
+    box-shadow: 1px 1px 4px rgb(92, 139, 68);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .btnBuy {
+    height: 3rem;
+    margin-top: 1rem;
+  }
+}

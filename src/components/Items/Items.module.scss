@@ -1,0 +1,163 @@
+.card {
+  position: relative;
+  box-sizing: content-box;
+  margin: 1rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 16rem;
+  height: 19rem;
+  padding: 1rem;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+  }
+
+  .span {
+    color: #c1c1c1;
+  }
+
+  .input {
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+
+  img {
+    max-height: 50%;
+    max-width: 85%;
+  }
+
+  .imgCloneDiv {
+    z-index: -1;
+    position: absolute;
+    opacity: 0;
+    top: 21px;
+    width: 16rem;
+    height: 19rem;
+
+    .imgClone {
+      position: absolute;
+      // top: 20px;
+      width: 203px;
+      left: 23px;
+    }
+  }
+}
+
+.singleCard {
+  display: flex;
+  position: relative;
+  max-height: 480px;
+
+  .imgCloneDivS {
+    // z-index: -1;
+    // border: 1px solid black;
+    position: absolute;
+    opacity: 0;
+    width: 500px;
+    height: 375px;
+    top: 0%;
+    left: -1%;
+
+    .imgCloneS {
+      position: absolute;
+      // top: 20px;
+      // width: 203px;
+      width: 100%;
+      width: 100%;
+      height: 100%;
+      left: 23px;
+    }
+  }
+
+  .imgPrew {
+    padding-left: 1rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 480px;
+    overflow: auto;
+
+    .imgBorder {
+      transform: translateY(-5px);
+      box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+    }
+
+    .imgBig {
+      width: 50%;
+    }
+
+    img {
+      width: 8rem;
+      width: 80%;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+      }
+    }
+  }
+
+
+
+
+
+  .textDiv {
+    padding-left: 1rem;
+  }
+
+}
+
+
+
+.observerDiv {
+  border-radius: 6px;
+  height: 6px;
+  width: 100%;
+  background: #f1f1f1;
+}
+
+@media (max-width: 900px) {
+  .singleCard {
+    max-height: none;
+    width: 100vw;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .textDiv {
+      width: 84%;
+    }
+
+    .imgCloneDivS {
+      width: 80vw;
+      height: 60vw;
+    }
+
+    .imgBig {
+      width: 80%;
+    }
+
+    .imgPrew {
+      flex-direction: row;
+      width: 80%;
+
+      .imgBorder {
+        transform: translateY(0px);
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+      }
+
+      img {
+        width: 23vw;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
