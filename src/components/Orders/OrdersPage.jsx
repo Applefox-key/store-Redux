@@ -4,12 +4,17 @@ import { useNavigate } from "react-router-dom";
 import sad from "../../img/sad.png";
 import OrdersList from "./OrdersList";
 import { allRouts } from "../../routes/routes";
+import BtnToHome from "../UI/BtnToHome";
 
 const OrdersPage = () => {
   const { purchase } = useSelector((state) => state.user);
   const router = useNavigate();
   return (
-    <div className="d-flex align-items-center justify-content-center">
+    <div>
+      <div className="d-flex align-items-center">
+        <BtnToHome />
+        <h3>My Orders</h3>
+      </div>
       {purchase.length ? (
         <OrdersList purchase={purchase} />
       ) : (

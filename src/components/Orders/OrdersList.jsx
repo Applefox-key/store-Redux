@@ -1,16 +1,11 @@
 import React from "react";
 import { timestampToDate } from "../../utils/dates";
-import BtnToHome from "../UI/BtnToHome";
 import cl from "./Profile.module.scss";
 import OrdersItem from "./OrdersItem";
 
 const OrdersList = ({ purchase }) => {
   return (
     <div>
-      <div className="d-flex align-items-center">
-        <BtnToHome />
-        <h3>My Orders</h3>
-      </div>
       <div className="d-flex flex-wrap justify-content-start align-items-top">
         {purchase.map((item, i) => (
           <div className={cl.oneOrder} key={item.id}>
