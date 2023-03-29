@@ -13,10 +13,10 @@ const Items = () => {
   const { filters, pagination } = useSelector((state) => state.params);
   const { page, totalPages } = useSelector((state) => state.params.pageState);
   const { itemsList, isLoading } = useSelector((state) => state.items);
-
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const lastElement = useRef();
+
   useObserver(lastElement, page < totalPages, isLoading, () => {
     dispatch(paramsSlice.actions.nextPage());
   });

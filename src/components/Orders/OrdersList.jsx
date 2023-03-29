@@ -28,6 +28,7 @@ const OrdersList = ({ purchase }) => {
               </h6>
             </div>{" "}
             <div className="filler"> </div>
+            <br />
             <OrdersItem list={item.list} />
           </div>
         ))}
