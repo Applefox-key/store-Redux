@@ -2,7 +2,7 @@ import React from "react";
 import empty from "../../img/empty_box.png";
 import orderOk from "../../img/orderOk.png";
 
-const EmptyCart = ({ orderPlaced, showCartfn }) => {
+const EmptyCart = ({ orderPlaced, closeCart }) => {
   return (
     <div className="d-flex justify-content-center align-items-center h-100 flex-column">
       <div className="text-center">
@@ -29,7 +29,7 @@ const EmptyCart = ({ orderPlaced, showCartfn }) => {
             <h6>Add at least one product to place an order</h6>
           </>
         )}
-        <button className="green_btn" onClick={() => showCartfn(false)}>
+        <button className="green_btn" onClick={closeCart}>
           ← go back
         </button>
       </div>
