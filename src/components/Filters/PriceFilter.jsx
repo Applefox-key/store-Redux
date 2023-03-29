@@ -11,7 +11,7 @@ const PriceFilter = () => {
     if (parseInt(event.target.value) < 0) return;
     const atr = { price_min: price_min, price_max: price_max };
     atr[event.target.id] = parseInt(event.target.value);
-    dispatch(paramsSlice.actions.filterPrice(event.target.id));
+    dispatch(paramsSlice.actions.filterPrice(atr));
   };
   return (
     <>
