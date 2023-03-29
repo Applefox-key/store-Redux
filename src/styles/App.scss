@@ -6,6 +6,7 @@
   margin: 50px auto;
 
   header {
+    padding-top: 25px;
     border-bottom: 1px solid #f4f4f4;
     padding-bottom: 10px;
     background-color: white;
@@ -23,10 +24,36 @@
       width: 50px;
     }
 
-    li {
-      list-style-type: none;
-      font-size: 2rem;
-      margin-left: 1rem;
+    ul {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+
+      li {
+        list-style-type: none;
+        font-size: 2rem;
+        margin-left: 1rem;
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 54px;
+        margin-right: 1rem;
+
+        span {
+          font-size: medium;
+        }
+      }
+
+      .active {
+        color: coral;
+
+        span {
+          text-decoration: underline;
+        }
+      }
     }
 
   }

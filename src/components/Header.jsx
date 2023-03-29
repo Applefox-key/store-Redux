@@ -37,35 +37,36 @@ const Header = () => {
           <p className="m-0"> Online store</p>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-between">
-        <ul className="text-decoration-none d-flex">
-          <li className=" fs-2  me-4 pointer">
-            <AiOutlineUser
-              className="hoverGreen"
-              onClick={() => router(allRouts.PROFILE)}
-            />
-          </li>
-          <li className=" fs-2 me-2 pointer me-4">
-            {location.pathname === "/home" ? (
-              <AiOutlineHeart
-                onClick={() => router(allRouts.FAVORITE)}
-                className="hoverRose"
-              />
-            ) : (
-              <AiOutlineHome
-                className="hoverGreen"
-                onClick={() => router(allRouts.HOME)}
-              />
-            )}
-          </li>
-          <li
-            className=" fs-2 pointer me-4 hoverGreen"
-            onClick={() => showCartfn(true)}>
-            {totalPrice ? <IoCart /> : <AiOutlineShoppingCart />}
-            <span className="ms-1 fs-4">{totalPrice}$</span>
-          </li>
-        </ul>
-      </div>
+
+      <ul>
+        <li
+          className={location.pathname === "/home" ? "active" : "hoverGreen"}
+          onClick={() => router(allRouts.HOME)}>
+          <AiOutlineHome /> <span>home</span>
+        </li>
+        <li
+          onClick={() => router(allRouts.PROFILE)}
+          className={
+            location.pathname === "/profile" ? "active" : "hoverGreen"
+          }>
+          <AiOutlineUser />
+          <span>orders</span>
+        </li>
+        <li
+          onClick={() => router(allRouts.FAVORITE)}
+          className={
+            location.pathname === "/favorite" ? "active" : "hoverGreen"
+          }>
+          <AiOutlineHeart />
+          <span>favorite</span>
+        </li>
+
+        <li className="hoverGreen" onClick={() => showCartfn(true)}>
+          {totalPrice ? <IoCart /> : <AiOutlineShoppingCart />}
+          <span>{totalPrice}$</span>
+        </li>
+      </ul>
+      {/* </div> */}
     </header>
   );
 };
