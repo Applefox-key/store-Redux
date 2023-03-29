@@ -94,10 +94,11 @@
 
     img {
       width: 8rem;
-      width: 80%;
+
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
       transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+      width: 80%;
 
       &:hover {
         transform: translateY(-5px);
@@ -112,6 +113,12 @@
 
   .textDiv {
     padding-left: 1rem;
+
+    .description {
+      text-align: left;
+      font-size: 1rem;
+      margin-top: 3rem;
+    }
   }
 
 }
@@ -128,12 +135,17 @@
 @media (max-width: 900px) {
   .singleCard {
     max-height: none;
-    width: 100vw;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
 
     .textDiv {
-      width: 84%;
+      // width: 84%;
+      text-align: center;
+
+      .description {
+        text-align: center;
+      }
     }
 
     .imgCloneDivS {
@@ -147,7 +159,7 @@
 
     .imgPrew {
       flex-direction: row;
-      width: 80%;
+      // width: 90%;
 
       .imgBorder {
         transform: translateY(0px);

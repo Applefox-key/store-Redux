@@ -61,7 +61,8 @@ const SingleItem = () => {
           <FavoriteBtn item={data} style={{ position: "relative" }} />
           <BtnAddToCart item={data} />
         </div>
-        <div className="text-left fs-4 mt-5">{data.description}</div>
+        <div className={cl.description}>{data.description}</div>
+        {/* <div className="text-left fs-4 mt-5">{data.description}</div> */}
       </div>
     </div>
   );
