@@ -16,7 +16,7 @@ const CartItem = ({ item, removeItem }) => {
 
         <b>{item.price}$</b>
       </div>{" "}
-      <div className="ms-2 text-center w-30px">
+      <div className="ml-2 text-center w-30px">
         <button className="btnOne" onClick={() => changeQuantity(1)}>
           ✚
         </button>

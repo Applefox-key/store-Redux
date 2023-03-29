@@ -17,15 +17,10 @@ const OrdersList = ({ purchase }) => {
             <h5>ORDER </h5>
             <div className="d-flex justify-content-between w-100">
               <h6> {timestampToDate(item.dateTime)}</h6>{" "}
-              <h6 className="ms-1 " style={{ fontWeight: "700" }}>
-                {item.totalPrice}$
-              </h6>
+              <h6 className="ml-1 fontW_700">{item.totalPrice}$</h6>
             </div>{" "}
             <div className="d-flex justify-content-between w-100 greenText">
-              <h6> state</h6>{" "}
-              <h6 className="ms-1 " style={{ fontWeight: "700" }}>
-                {item.state}
-              </h6>
+              <h6> state</h6> <h6 className="ml-1 fontW_700">{item.state}</h6>
             </div>{" "}
             <div className="filler"> </div>
             <br />

@@ -9,7 +9,7 @@ const OrdersItem = ({ list }) => {
           key={el.id}
           className="d-flex mb-1 align-items-center  justify-content-start w-100">
           <img src={el.images[0]} alt="img" className={cl.img} />
-          <div className="ms-4">
+          <div className="ml-1">
             {el.title}
             <div
               className="d-flex justify-content-between flex-wrap"

@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <header className="d-flex justify-content-between align-items-center mb-4">
+    <header>
       <div
         className="d-flex align-items-center pointer"
         onClick={() => router(allRouts.HOME)}>

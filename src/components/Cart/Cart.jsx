@@ -52,7 +52,7 @@ const Cart = () => {
                   <div className="filler"> </div>
                   <b>{cart.totalPrice}$</b>
                 </div>
-                <button className={cl.btnBuy} onClick={placeAnOrder}>
+                <button className="green_btn" onClick={placeAnOrder}>
                   Pay
                 </button>
               </div>

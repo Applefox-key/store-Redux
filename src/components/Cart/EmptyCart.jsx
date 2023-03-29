@@ -1,18 +1,15 @@
 import React from "react";
 import empty from "../../img/empty_box.png";
 import orderOk from "../../img/orderOk.png";
+import cl from "./Cart.module.scss";
 
 const EmptyCart = ({ orderPlaced, closeCart }) => {
   return (
     <div className="d-flex justify-content-center align-items-center h-100 flex-column">
-      <div className="text-center">
+      <div className="text-center h-50 mt-4">
         {orderPlaced ? (
           <>
-            <img
-              src={orderOk}
-              style={{ width: "83px", height: "120px" }}
-              alt="order is ok"
-            />
+            <img src={orderOk} className={cl.orderDone} alt="order is ok" />
             <h3 className="mt-5 text-center greenText">
               The order has been placed!
             </h3>{" "}
@@ -20,19 +17,15 @@ const EmptyCart = ({ orderPlaced, closeCart }) => {
           </>
         ) : (
           <>
-            <img
-              src={empty}
-              style={{ width: "120px", height: "120px" }}
-              alt="cart is empty"
-            />
+            <img src={empty} className={cl.emptyImg} alt="cart is empty" />
             <h6>You cart is empty. </h6>
             <h6>Add at least one product to place an order</h6>
           </>
-        )}
-        <button className="green_btn" onClick={closeCart}>
-          ← go back
-        </button>
+        )}{" "}
       </div>
+      <button className="green_btn" onClick={closeCart}>
+        ← go back
+      </button>
     </div>
   );
 };
