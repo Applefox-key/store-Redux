@@ -4,22 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { paramsSlice } from "../../store/params/params-slice";
 
 const PriceFilter = () => {
-  const dispatch = useDispatch();
   const { price_min, price_max } = useSelector((state) => state.params.filters);
-
+  const dispatch = useDispatch();
   const changePrice = (event) => {
-    if (parseInt(event.target.value) < 0) return;
+    const val = event.target.value ? parseInt(event.target.value) : 0;
+    if (val < 0) return;
     const atr = { price_min: price_min, price_max: price_max };
-    atr[event.target.id] = parseInt(event.target.value);
+
+    atr[event.target.id] = val;
+
     dispatch(paramsSlice.actions.filterPrice(atr));
   };
+  console.log("price_min", price_min);
+  console.log("price_max", price_max);
+
   return (
     <>
       <TextField
         size="small"
         id="price_min"
         label="price min"
-        type="number"
+        // type="number"
         variant="standard"
         InputLabelProps={{
           shrink: true,
@@ -31,7 +36,7 @@ const PriceFilter = () => {
         size="small"
         id="price_max"
         label="price max"
-        type="number"
+        // type="number"
         InputLabelProps={{
           shrink: true,
         }}

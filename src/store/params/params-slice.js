@@ -22,7 +22,7 @@ export const paramsSlice = createSlice({
   name: "params",
   initialState: {
     filters: { categoryId: "", title: "", price_min: 0, price_max: 0 },
-    pagination: { offset: 0, limit: 10 },
+    pagination: { offset: 0, limit: 18 },
     pageState: { page: 0, totalPages: 0, showBtnUp: false },
   },
   reducers: {
