@@ -37,7 +37,7 @@ function App() {
       )}
       <div className="wrapper p-40">
         <Cart />
-        <Header isMainPage={window.location.pathname === "/home"} />
+        <Header />
         <Routes>
           {privateRoutes.map((item, i) => (
             <Route path={item.path} element={item.element} key={i} />

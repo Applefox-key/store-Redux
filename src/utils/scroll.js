@@ -1,6 +1,6 @@
 export const isBtnShow = () => {
-  const B = document.body; //IE 'quirks'
-  let D = document.documentElement; //IE with doctype
+  const B = document.body;
+  let D = document.documentElement;
   D = D.clientHeight ? D : B;
   if (D.scrollTop === 0) {
     return false;

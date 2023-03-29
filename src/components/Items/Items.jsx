@@ -17,7 +17,9 @@ const Items = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const lastElement = useRef();
-
+  useObserver(lastElement, page < totalPages, isLoading, () => {
+    dispatch(paramsSlice.actions.nextPage());
+  });
   useEffect(() => {
     if (user.changed) dispatch(sendUserData(user));
   }, [user, dispatch]);
@@ -28,10 +30,6 @@ const Items = () => {
   useEffect(() => {
     dispatch(getItemsBatch({ ...filters, ...pagination }));
   }, [filters, pagination, dispatch]);
-
-  useObserver(lastElement, page < totalPages, isLoading, () => {
-    dispatch(paramsSlice.actions.nextPage());
-  });
 
   return (
     <div className="d-flex flex-column align-items-center">

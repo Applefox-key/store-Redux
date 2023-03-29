@@ -14,10 +14,9 @@ const Cart = () => {
   };
 
   const dispatch = useDispatch();
-  const showCartfn = (show) => {
-    if (show) document.body.classList.add("body-no-scroll");
-    else document.body.classList.remove("body-no-scroll");
-    dispatch(cartSlice.actions.openClose(show));
+  const closeCart = () => {
+    document.body.classList.remove("body-no-scroll");
+    dispatch(cartSlice.actions.openClose(false));
   };
   const removeItem = (item) => {
     dispatch(cartSlice.actions.removeFromCart(item));
@@ -28,12 +27,12 @@ const Cart = () => {
       <div
         className={cl.overlay}
         onClick={(e) => {
-          if (e.target === e.currentTarget) showCartfn(false);
+          if (e.target === e.currentTarget) closeCart();
         }}>
         <div className={cl.sidebar}>
           <div className="d-flex justify-content-between">
             <h2>Cart</h2>
-            <button className="btnOne" onClick={() => showCartfn(false)}>
+            <button className="btnOne" onClick={() => closeCart()}>
               ✕
             </button>
           </div>
@@ -59,7 +58,7 @@ const Cart = () => {
               </div>
             </>
           ) : (
-            <EmptyCart orderPlaced={cart.orderPlaced} showCartfn={showCartfn} />
+            <EmptyCart orderPlaced={cart.orderPlaced} closeCart={closeCart} />
           )}
         </div>
       </div>

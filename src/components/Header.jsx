@@ -12,9 +12,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { allRouts } from "../routes/routes";
 
 import cartSlice from "../store/cart/cart-slice";
-import { scroll2Top } from "../utils/scroll";
 
-const Header = ({ isMainPage }) => {
+const Header = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const location = useLocation();
   const router = useNavigate();
@@ -22,7 +21,6 @@ const Header = ({ isMainPage }) => {
   const dispatch = useDispatch();
   const showCartfn = (show) => {
     if (show) {
-      scroll2Top();
       document.body.classList.add("body-no-scroll");
     } else document.body.classList.remove("body-no-scroll");
     dispatch(cartSlice.actions.openClose(show));
