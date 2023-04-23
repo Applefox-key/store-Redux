@@ -103,7 +103,7 @@ const NewOrderPage = () => {
           <div>
             {userData.city}, {userData.state}, USA
           </div>{" "}
-          <button className="colorbtn w-100" onClick={placeNewOrder}>
+          <button className="colorbtn w-100 mt-3" onClick={placeNewOrder}>
             Pay {cart.totalPrice}$
           </button>
         </div>

@@ -50,12 +50,7 @@ export const formatingUserData = (field, value) => {
     }
     case "zipCode": {
       const cleaned = ("" + value).replace(/\D/g, "").slice(0, 9);
-      const regex = /^(\d{0,5})(\d{0,4})$/;
-      const formatted = cleaned.replace(regex, function (match, p1, p2) {
-        let part1 = p1 ? p1 + "-" : "";
-
-        return part1 + p2;
-      });
+      const formatted = cleaned.slice(0, 5);
       return formatted;
     }
     default:

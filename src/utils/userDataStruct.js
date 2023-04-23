@@ -33,14 +33,14 @@ export const userDataStruct = {
   streetAddress: { id: "streetAddress", label: "Street Address" },
   addressInfo: {
     id: "addressInfo",
-    label: "Additional information",
+    label: "Apt/Ste",
     optional: true,
   },
   city: { id: "city", label: "City" },
   zipCode: {
     id: "zipCode",
     label: "Zip/Postal Code",
-    placeholder: "XXXXX-XXXX",
+    placeholder: "XXXXX",
     formatCheck: true,
   },
   state: { id: "state", label: "State" },

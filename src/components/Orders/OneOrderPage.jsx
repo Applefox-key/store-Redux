@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { timestampToDate } from "../../utils/dates";
 import cl from "./Orders.module.scss";
 import OneOrderItem from "./OneOrderItem";
-import BtnToHome from "../UI/BtnToHome";
+import BtnBack from "../UI/BtnToHome";
+import BtnAgainToCart from "../UI/BtnAgainToCart";
 const OneOrderPage = () => {
   const orderId = useParams().id;
 
@@ -14,7 +15,7 @@ const OneOrderPage = () => {
   return (
     <div className={cl.oneOrderPage}>
       <div className="d-flex align-items-center">
-        <BtnToHome />
+        <BtnBack />
         <h3>ORDER DETAILS</h3>
       </div>{" "}
       <div className={cl.status + " basic-wrap"}>{oneOrder.state}</div>
@@ -39,7 +40,8 @@ const OneOrderPage = () => {
       <div className=" basic-wrap">
         {oneOrder.list.map((item) => (
           <OneOrderItem key={item.id} item={item}>
-            <button className="colorHover">add to cart</button>
+            {/* <button className="colorbtn">add to cart</button> */}
+            <BtnAgainToCart item={item} />
           </OneOrderItem>
         ))}
         <div className="filler"> </div>

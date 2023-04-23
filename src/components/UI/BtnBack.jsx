@@ -1,15 +1,18 @@
 import React from "react";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { allRouts } from "../../routes/routes";
 import cl from "./ui.module.scss";
 
-const BtnBack = () => {
+const BtnToHome = () => {
   const router = useNavigate();
   return (
-    <div className={"pointer " + cl.backBtn} onClick={() => router(-1)}>
+    <div
+      className={"pointer " + cl.backBtn}
+      onClick={() => router(allRouts.HOME)}>
       <MdOutlineArrowBackIosNew />
     </div>
   );
 };
 
-export default BtnBack;
+export default BtnToHome;

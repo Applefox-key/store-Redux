@@ -76,19 +76,6 @@ const EditProfileForm = ({
       {isAuth && (
         <div className="basic-flex">
           <h5 className="fs-1">SHIPPING ADRESS</h5>
-          <div className={cl.btnBox}>
-            <button
-              onClick={saveChanges}
-              disabled={errors.length}
-              className="colorbtn">
-              Save profile changes
-            </button>
-            {isBackBtn && (
-              <button onClick={finalCallBack} className="colorbtn">
-                Back
-              </button>
-            )}
-          </div>
         </div>
       )}
       <div className={cl.dataString}>
@@ -108,6 +95,19 @@ const EditProfileForm = ({
         <TextField {...inputParams("zipCode")} />{" "}
         <TextField {...inputParams("state")} />{" "}
       </div>{" "}
+      <div className={isBackBtn ? cl.btnBox : cl.btnBox + " mt-1"}>
+        <button
+          onClick={saveChanges}
+          disabled={errors.length}
+          className={isBackBtn ? "colorbtn" : "colorbtn w-100 m-auto"}>
+          Save profile changes
+        </button>
+        {isBackBtn && (
+          <button onClick={finalCallBack} className="colorbtn">
+            Back
+          </button>
+        )}
+      </div>
     </div>
   );
 };

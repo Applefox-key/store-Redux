@@ -48,14 +48,14 @@ const ProfilePage = () => {
       <div className={cl["text-menu"]}>
         <h5 className="basic-wrap">User Profile</h5>
         <ul className={[cl["ul-text"], "basic-wrap"].join(" ")}>
-          {textMenuArr.map((el) => (
-            <li key={el.path} onClick={el.onClick}>
+          {textMenuArr.map((el, i) => (
+            <li key={i} onClick={el.onClick}>
               <span>{el.name}</span>
             </li>
           ))}
-          {iconMenuArr.map((el) => (
+          {iconMenuArr.map((el, i) => (
             <li
-              key={el.path}
+              key={i + "2"}
               className={content === el.content ? "active" : "colorHover"}
               onClick={() => setContent(el.content)}>
               <span>{el.name}</span>

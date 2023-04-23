@@ -2,8 +2,7 @@ import React from "react";
 import { timestampToDate } from "../../utils/dates";
 import cl from "./Orders.module.scss";
 import { useSelector } from "react-redux";
-import OrdersListItem from "./OrdersListItem";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { allRouts } from "../../routes/routes";
 import OneOrderItem from "./OneOrderItem";
 import SomeOrderItems from "./SomeOrderItems";
@@ -13,17 +12,12 @@ const OrdersList = () => {
   console.log(purchase);
 
   const orders = Object.values(purchase);
-  console.log(orders);
-  const router = useNavigate();
-  const handleClick = (id) => {
-    router(allRouts.ORDERS + "/" + id);
-  };
 
   return (
     <div className={cl.oneOrderPage}>
       <div className=" ">
         {orders.map((el, i) => (
-          <div className="basic-wrap pl-4 pr-4">
+          <div className="basic-wrap pl-4 pr-4" key={el.id}>
             <div className={cl.header}>
               <div>
                 <b>{el.state}</b>

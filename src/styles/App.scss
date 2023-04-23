@@ -215,6 +215,11 @@
     background-color: #dadada;
   }
 
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+    font-weight: 400;
+
+  }
 }
 
 .colorbtnLg {

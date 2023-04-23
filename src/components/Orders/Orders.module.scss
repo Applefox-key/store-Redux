@@ -57,14 +57,21 @@
     justify-content: space-between;
     width: 100%;
 
+
+
     .orderinfo {
       width: 45%;
       padding: 10px;
       font-size: 14px;
 
+      @media screen and (max-width: 600px) {
+        width: 100%
+      }
+
       div {
         margin-bottom: 10px;
       }
+
 
     }
 
@@ -75,14 +82,15 @@
 
       span {
         color: red;
-
-
       }
 
       div {
-        margin-bottom: 1px;
+        // margin-bottom: 1px;
       }
 
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
     }
 
     .payment {
@@ -90,7 +98,7 @@
       flex-direction: column;
       align-items: flex-start;
 
-      justify-content: space-around;
+      justify-content: space-between;
 
       input {
         width: auto;
@@ -101,6 +109,13 @@
 
       }
     }
+
+    @media screen and (max-width: 600px) {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+
   }
 
   .oneItem {
@@ -109,6 +124,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
+
+    @media screen and (max-width: 600px) {
+      flex-wrap: wrap;
+    }
 
     img {
       max-width: 120px;
@@ -131,6 +150,12 @@
   a {
     color: black;
     font-weight: 500;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      color: green;
+      transform: scale(1.2);
+    }
   }
 
   button {
@@ -143,7 +168,6 @@
     &:hover {
       transform: translateY(-5px);
     }
-
   }
 
   .total {
