@@ -9,7 +9,8 @@ const FavoriteBtn = ({ item, ...props }) => {
   const addToFav = (item) => {
     dispatch(userSlice.actions.switchFav(item));
   };
-  const favoriteid = useSelector((state) => state.user.favoriteid);
+  const favorite = useSelector((state) => state.user.favorite);
+  const favoriteid = favorite.map((el) => el.id);
 
   return (
     <>

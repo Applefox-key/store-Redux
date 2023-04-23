@@ -24,3 +24,20 @@ export const makeUrl = ({
 
   return r;
 };
+
+export const UserId_URL = async (email) => {
+  const hash = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(email)
+  );
+  const hex = Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return hex;
+  // let userid = getCookie("userid");
+  // if (userid === "") {
+  //   userid = crypto.randomUUID();
+  //   setCookie("userid", userid);
+  // }
+  // return userid;
+};

@@ -1,0 +1,176 @@
+.profilePage {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+        flex-wrap: wrap;
+    }
+
+    .user-data-text {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 10px;
+
+        button {
+            position: absolute;
+            right: 0;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+
+
+
+
+    .profile-content {
+        width: 80%;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+
+
+
+    }
+
+    .text-menu {
+        @media screen and (max-width: 600px) {
+            margin-bottom: 1rem;
+        }
+
+    }
+
+    .w-45 {
+        width: 45%;
+    }
+
+    .w-45 {
+        width: 45%;
+    }
+
+    span {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .ul-icon {
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0;
+        padding-left: 0;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        li {
+            list-style-type: none;
+            font-size: 1rem;
+            margin-left: 1rem;
+            display: grid;
+            justify-items: center;
+
+
+            cursor: pointer;
+            width: 54px;
+            margin-right: 1rem;
+
+            span {
+                font-size: small;
+            }
+        }
+    }
+
+
+
+    .ul-text {
+        text-decoration: none;
+        list-style-type: none;
+        padding-left: 5px;
+        margin-right: 80px;
+        width: 100%;
+        height: 90%;
+
+        @media screen and (max-width: 600px) {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            padding: 0;
+            height: auto;
+        }
+
+        li {
+            font-size: 1rem;
+            margin: 0.8rem;
+        }
+    }
+
+
+    // d-flex flex-wrap justify-content-start align-content-start align-items-start flex-column
+}
+
+.btnBox {
+    width: auto;
+    display: flex;
+    align-content: center;
+
+    button {
+        width: auto;
+        font-size: 1.1rem;
+        margin-right: 1rem;
+        border-radius: 5px;
+        margin-top: 0rem;
+        height: 2rem;
+    }
+}
+
+.user-data-form {
+    font-size: 2rem;
+    width: 100%;
+
+    .dataString {
+        width: 100%;
+
+        .oneInput {
+            width: 45%;
+            margin-top: 1rem;
+
+            @media screen and (max-width: 600px) {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+
+        .zip {
+            @extend .oneInput;
+            width: 8rem;
+        }
+
+
+
+        // button {
+        //     font-size: 1.3rem;
+        //     margin-right: 1rem;
+        //     margin-top: 1rem;
+        //     border-radius: 5px;
+        //     min-width: 7rem;
+        //     transition: all 0.4s ease-in-out;
+        //     background-color: ghostwhite;
+        //     width: auto;
+
+        //     &:hover {
+        //         transform: translateY(-5px);
+        //     }
+        // }
+
+        .state {
+            @extend .oneInput;
+            width: auto;
+        }
+    }
+}

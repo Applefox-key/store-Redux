@@ -2,15 +2,14 @@ import axios from "axios";
 import { getCookie } from "../../utils/cookies";
 import cartSlice from "./cart-slice";
 import uiSlice from "../ui/ui-slice";
+import { FIRE_BASE_DB } from "../../utils/constants";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchHandler = async () => {
-      let userid = getCookie("userid");
+      let sessionid = getCookie("sessionid");
       const res = await axios.get(
-        "https://store-e0684-default-rtdb.firebaseio.com/" +
-          userid +
-          "/cart.json"
+        FIRE_BASE_DB + "/sessions/" + sessionid + "/cart.json"
       );
       const data = res.data;
 
@@ -42,12 +41,10 @@ export const sendCartData = (cart) => {
     );
 
     const sendRequest = async () => {
-      let userid = getCookie("userid");
+      let sessionid = getCookie("sessionid");
       dispatch(cartSlice.actions.changedOff());
       await axios.put(
-        "https://store-e0684-default-rtdb.firebaseio.com/" +
-          userid +
-          "/cart.json",
+        FIRE_BASE_DB + "/sessions/" + sessionid + "/cart.json",
         JSON.stringify(cart)
       );
       dispatch(

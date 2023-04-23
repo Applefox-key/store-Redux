@@ -10,7 +10,7 @@ const EmptyCart = ({ orderPlaced, closeCart }) => {
         {orderPlaced ? (
           <>
             <img src={orderOk} className={cl.orderDone} alt="order is ok" />
-            <h3 className="mt-5 text-center greenText">
+            <h3 className="mt-5 text-center colorText">
               The order has been placed!
             </h3>{" "}
             <h4>Your order will be delivered to courier delivery soon</h4>
@@ -23,7 +23,7 @@ const EmptyCart = ({ orderPlaced, closeCart }) => {
           </>
         )}{" "}
       </div>
-      <button className="green_btn" onClick={closeCart}>
+      <button className="colorbtnLg" onClick={closeCart}>
         ← go back
       </button>
     </div>

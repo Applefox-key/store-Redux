@@ -10,6 +10,7 @@ export function setCookie(cname, cvalue, exdays = "") {
 
 export function getCookie(cname) {
   let name = cname + "=";
+
   let ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
@@ -22,11 +23,12 @@ export function getCookie(cname) {
   }
   return "";
 }
-export const getUserId = () => {
-  let userid = getCookie("userid");
-  if (userid === "") {
-    userid = crypto.randomUUID();
-    setCookie("userid", userid);
+
+export const getSessionId = () => {
+  let sessionid = getCookie("sessionid");
+  if (sessionid === "") {
+    sessionid = crypto.randomUUID();
+    setCookie("sessionid", sessionid);
   }
-  return userid;
+  return sessionid;
 };

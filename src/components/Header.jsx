@@ -8,6 +8,7 @@ import {
   AiOutlineUser,
   AiOutlineHome,
 } from "react-icons/ai";
+import { TfiNotepad } from "react-icons/tfi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { allRouts } from "../routes/routes";
 
@@ -17,7 +18,7 @@ const Header = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const location = useLocation();
   const router = useNavigate();
-
+  const isAuth = useSelector((store) => store.auth.isLoggedIn);
   const dispatch = useDispatch();
   const showCartfn = (show) => {
     if (show) {
@@ -25,7 +26,10 @@ const Header = () => {
     } else document.body.classList.remove("body-no-scroll");
     dispatch(cartSlice.actions.openClose(show));
   };
-
+  const toProfile = () => {
+    if (isAuth) router(allRouts.PROFILE);
+    else router(allRouts.LOGIN);
+  };
   return (
     <header>
       <div
@@ -40,28 +44,34 @@ const Header = () => {
 
       <ul>
         <li
-          className={location.pathname === "/home" ? "active" : "hoverGreen"}
+          className={location.pathname === "/home" ? "active" : "colorHover"}
           onClick={() => router(allRouts.HOME)}>
           <AiOutlineHome /> <span>home</span>
         </li>
         <li
-          onClick={() => router(allRouts.PROFILE)}
+          onClick={() => router(allRouts.ORDERS)}
+          className={location.pathname === "/orders" ? "active" : "colorHover"}>
+          <TfiNotepad />
+          <span>orders</span>
+        </li>
+        <li
+          onClick={toProfile}
           className={
-            location.pathname === "/profile" ? "active" : "hoverGreen"
+            location.pathname === "/profile" ? "active" : "colorHover"
           }>
           <AiOutlineUser />
-          <span>orders</span>
+          <span>profile</span>
         </li>
         <li
           onClick={() => router(allRouts.FAVORITE)}
           className={
-            location.pathname === "/favorite" ? "active" : "hoverGreen"
+            location.pathname === "/favorite" ? "active" : "colorHover"
           }>
           <AiOutlineHeart />
           <span>favorite</span>
         </li>
 
-        <li className="hoverGreen" onClick={() => showCartfn(true)}>
+        <li className="colorHover" onClick={() => showCartfn(true)}>
           {totalPrice ? <IoCart /> : <AiOutlineShoppingCart />}
           <span>{totalPrice}$</span>
         </li>

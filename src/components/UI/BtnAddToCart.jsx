@@ -23,7 +23,7 @@ const BtnAddToCart = ({ item }) => {
       <div className="d-flex">
         {quantity && <span className={cl.quantity}>{quantity}</span>}
         <BsCartPlus
-          className="hoverGreen"
+          className="colorHover"
           style={{ fontSize: "2rem" }}
           onClick={addToCart}>
           add to cart

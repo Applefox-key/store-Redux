@@ -7,9 +7,11 @@ import userSlice from "./user/user-slice";
 import categoriesSlice from "./categories/categories-slice";
 import { apiSlice } from "../features/apiSlice";
 import { paramsSlice } from "./params/params-slice";
+import authSlice from "./auth/auth-slice";
 
 const store = configureStore({
   reducer: {
+    auth: authSlice.reducer,
     user: userSlice.reducer,
     items: itemsSlice.reducer,
     cart: cartSlice.reducer,

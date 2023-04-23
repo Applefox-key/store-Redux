@@ -38,6 +38,11 @@
       margin-bottom: 0;
       padding-left: 0;
 
+      @media screen and (max-width: 600px) {
+
+        margin-top: 2rem;
+      }
+
       li {
         list-style-type: none;
         font-size: 2rem;
@@ -48,6 +53,12 @@
         cursor: pointer;
         width: 54px;
         margin-right: 1rem;
+
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          margin-left: 0.7rem;
+          margin-right: 0.7rem;
+        }
 
         span {
           font-size: medium;
@@ -67,9 +78,52 @@
 
 }
 
+.string-div {
+  width: 100%;
+  height: auto;
+  background-color: ghostwhite;
+  border-radius: 10px;
+  padding: 5px 5px;
+  margin-bottom: 20px;
+}
+
+.active {
+  color: coral;
+
+  span {
+    text-decoration: underline;
+  }
+}
+
+.basic-wrap {
+  width: auto;
+  height: auto;
+  background-color: ghostwhite;
+  border-radius: 10px;
+  padding: 2px 2px;
+  margin-bottom: 20px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.basic-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.mb-1px {
+  margin-bottom: 1px !important;
+}
+
 .body-no-scroll {
   overflow: hidden;
 }
+
+
+
+
+
 
 .p-40 {
   padding: 40px;
@@ -79,15 +133,7 @@
   font-weight: 700;
 }
 
-.hoverGreen {
-  cursor: pointer;
 
-  &:hover {
-    color: #94C852;
-    transition: 3ms;
-  }
-
-}
 
 .filler {
   width: 100%;
@@ -120,33 +166,64 @@
   }
 }
 
+.colorHover {
+  cursor: pointer;
 
-.greenText {
+  &:hover {
+    color: #94C852;
+    transition: 3ms;
+  }
+
+}
+
+.colorText {
   color: #87C20A;
 }
 
-.green_btn {
-  margin-top: 2rem;
-  height: 50px;
-  width: 100%;
-  background: #94C852;
-  background: #9DD458;
-  border-radius: 18px;
+.colorbtn,
+.colorbtnLg {
   border: none;
   color: white;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 2rem;
   line-height: 19px;
   text-align: center;
+  width: auto;
+  transition: all 0.4s ease-in-out;
+  border-radius: 5px;
+
+
+  background-color: #3d3daf;
+  background: #26a843;
+
+  transition: all 0.4s ease-in-out;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  margin-top: 0rem;
+  height: 2rem;
 
   &:hover {
-    box-shadow: 1px 1px 4px rgb(92, 139, 68);
+    transform: translateY(-5px);
+    background-color: #4e4efd;
+    background-color: #9DD458;
+    ;
   }
+
+  &:disabled {
+    background-color: #dadada;
+  }
+
 }
 
-
+.colorbtnLg {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 2rem;
+  height: 50px;
+  font-size: 2rem;
+}
 
 @media (max-width: 600px) {
   .wrapper {
@@ -155,7 +232,10 @@
 
   }
 
-  .green_btn {
+
+
+  .colorbtn,
+  .colorbtnLg {
     height: 3rem;
     margin-top: 1rem;
   }

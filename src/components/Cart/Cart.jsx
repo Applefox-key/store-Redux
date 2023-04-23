@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import cartSlice from "../../store/cart/cart-slice";
 import CartItem from "../CartItem/CartItem";
 import cl from "./Cart.module.scss";
-import userSlice from "../../store/user/user-slice";
 import EmptyCart from "./EmptyCart";
+import { useNavigate } from "react-router-dom";
+import { allRouts } from "../../routes/routes";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  const placeAnOrder = () => {
-    dispatch(userSlice.actions.placeOrder(cart));
-    dispatch(cartSlice.actions.placeOrder());
-  };
+  const router = useNavigate();
 
   const dispatch = useDispatch();
   const closeCart = () => {
@@ -21,7 +19,10 @@ const Cart = () => {
   const removeItem = (item) => {
     dispatch(cartSlice.actions.removeFromCart(item));
   };
-
+  const placeAnOrder = () => {
+    closeCart();
+    router(allRouts.NEW_ORDER);
+  };
   return (
     cart.showCart && (
       <div
@@ -52,8 +53,8 @@ const Cart = () => {
                   <div className="filler"> </div>
                   <b>{cart.totalPrice}$</b>
                 </div>
-                <button className="green_btn" onClick={placeAnOrder}>
-                  Pay
+                <button className="colorbtnLg" onClick={placeAnOrder}>
+                  Make an order
                 </button>
               </div>
             </>

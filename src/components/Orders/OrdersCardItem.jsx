@@ -1,7 +1,7 @@
 import React from "react";
 
-import cl from "./Profile.module.scss";
-const OrdersItem = ({ list }) => {
+import cl from "./Orders.module.scss";
+const OrdersCardItem = ({ list }) => {
   return (
     <div className={cl.orderItems}>
       {list.map((el) => (
@@ -26,4 +26,4 @@ const OrdersItem = ({ list }) => {
   );
 };
 
-export default OrdersItem;
+export default OrdersCardItem;

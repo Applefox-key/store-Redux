@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { userInitialState } from "../../utils/userDataStruct";
 
 const userSlice = createSlice({
   name: "user",
-  initialState: { favorite: [], favoriteid: [], purchase: [], changed: false },
+  initialState: { ...userInitialState },
   reducers: {
     replaceData(state, action) {
-      state.purchase = action.payload.purchase ? action.payload.purchase : [];
+      state.orders = action.payload.orders ? action.payload.orders : {};
       state.favorite = action.payload.favorite ? action.payload.favorite : [];
-      state.favoriteid = action.payload.favoriteid
-        ? action.payload.favoriteid
-        : [];
+      state.profile = action.payload.profile ? action.payload.profile : {};
     },
     changedOff(state, action) {
       state.changed = false;
@@ -22,25 +21,23 @@ const userSlice = createSlice({
       );
 
       if (existingItemIndex !== -1) {
-        state.favoriteid = state.favoriteid.filter((el) => el !== item.id);
         state.favorite = state.favorite.filter((el) => el.id !== item.id);
       } else {
-        state.favoriteid.push(item.id);
         state.favorite.push(item);
       }
     },
     placeOrder(state, action) {
+      const order = action.payload;
+      const orderId = action.payload.id;
+
+      state.orders[orderId] = order;
+    },
+    changeData(state, action) {
+      state.profile = { ...state.profile, ...action.payload };
       state.changed = true;
-      const items = action.payload.itemsList;
-      const totalPrice = action.payload.totalPrice;
-      const orderId = crypto.randomUUID();
-      state.purchase.push({
-        "id": orderId,
-        "list": items,
-        "totalPrice": totalPrice,
-        "state": "processing",
-        "dateTime": Date.now(),
-      });
+    },
+    resetData(state, action) {
+      return { ...userInitialState };
     },
   },
 });

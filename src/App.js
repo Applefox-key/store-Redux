@@ -13,7 +13,7 @@ import Header from "./components/Header";
 import Notification from "./components/UI/Notification";
 let isFistRendering = 0;
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const notification = useSelector((state) => state.ui.notification);
   const cart = useSelector((state) => state.cart);
@@ -46,6 +46,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
