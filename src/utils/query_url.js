@@ -34,10 +34,4 @@ export const UserId_URL = async (email) => {
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
   return hex;
-  // let userid = getCookie("userid");
-  // if (userid === "") {
-  //   userid = crypto.randomUUID();
-  //   setCookie("userid", userid);
-  // }
-  // return userid;
 };

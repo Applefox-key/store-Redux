@@ -1,21 +1,17 @@
-import axios from "axios";
 import { getCookie } from "../../utils/cookies";
 import uiSlice from "../ui/ui-slice";
-import { FIRE_BASE_DB } from "../../utils/constants";
 import authSlice from "./auth-slice";
 import { userActions } from "../user/user-slice";
 import { userInitialState } from "../../utils/userDataStruct";
 import { getUserData, sendUserData } from "../user/user-actions";
 import { UserId_URL } from "../../utils/query_url";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const closeSession = () => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      //add userid to the session
       let sessionid = getCookie("sessionid");
-      await axios.delete(
-        FIRE_BASE_DB + "/sessions/" + sessionid + "/user.json"
-      );
+      await SERVER_API.logout(sessionid);
       dispatch(authSlice.actions.logout());
       dispatch(userActions.resetData());
     };
@@ -39,11 +35,7 @@ export const authorization = (userData, isNew) => {
       const userid = await UserId_URL(userData.email);
       //add userid to the session
       let sessionid = getCookie("sessionid");
-      await axios.put(
-        FIRE_BASE_DB + "/sessions/" + sessionid + "/user.json",
-        JSON.stringify(userid)
-      );
-
+      await SERVER_API.login(sessionid, userid);
       if (isNew) {
         //formatting users data
         const { passwordConfirm, ...data_for_send } = userData;

@@ -7,11 +7,9 @@ const cartSlice = createSlice({
     itemsList: [],
     totalPrice: 0,
     changed: false,
-    orderPlaced: false,
   },
   reducers: {
     replaceData(state, action) {
-      state.orderPlaced = false;
       state.totalPrice = action.payload.totalPrice
         ? action.payload.totalPrice
         : 0;
@@ -23,14 +21,12 @@ const cartSlice = createSlice({
       state.changed = false;
     },
     openClose(state, action) {
-      state.orderPlaced = false;
       state.showCart = action.payload;
     },
     placeOrder(state, action) {
       state.changed = true;
       state.itemsList = [];
       state.totalPrice = 0;
-      state.orderPlaced = true;
     },
     addToCart(state, action) {
       state.changed = true;
@@ -53,10 +49,6 @@ const cartSlice = createSlice({
           price: newItem.price,
           total: newItem.price,
         });
-      if (state.orderPlaced) state.orderPlaced = false;
-      state.totalPrice = parseFloat(
-        (state.totalPrice + newItem.price).toFixed(2)
-      );
     },
     removeFromCart(state, action) {
       state.changed = true;

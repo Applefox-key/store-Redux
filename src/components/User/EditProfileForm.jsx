@@ -5,6 +5,7 @@ import { formatingUserData, isUserDataValid } from "../../utils/validation";
 import cl from "./profile.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import userSlice from "../../store/user/user-slice";
+import { adressApi } from "../../utils/serwerRequests";
 
 const EditProfileForm = ({
   userData,
@@ -15,11 +16,18 @@ const EditProfileForm = ({
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isLoggedIn);
-  const handleChange = (event) => {
+
+  const handleChange = async (event) => {
     const value = event.target.value;
     const field = event.target.id;
     const formatedData = formatingUserData(field, value);
-    setUserData({ ...userData, [field]: formatedData });
+    let changes = { [field]: formatedData };
+
+    if (field === "zipCode" && value.length === 5) {
+      changes.state = await adressApi.getStatesByZipCode(value);
+      changes.city = await adressApi.getCitysByZipCode(value);
+    }
+    setUserData({ ...userData, ...changes });
   };
 
   const handleBlur = (event) => {

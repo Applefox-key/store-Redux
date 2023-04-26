@@ -1,17 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { FAKE_DB } from "../../utils/constants";
-import { makeUrl } from "../../utils/query_url";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const getTotalPages = createAsyncThunk(
   "params/getTotalPages",
   async (atr, thunkAPI) => {
     try {
-      const res = await axios.get(
-        `${FAKE_DB}/products/${makeUrl({ ...atr, isAll: true })}`
-      );
-
-      return { data: res.data, limit: atr.limit };
+      const res = await SERVER_API.getProductsTotalPages(atr);
+      return { totalPages: res };
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -61,9 +56,10 @@ export const paramsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getTotalPages.fulfilled, (state, action) => {
-      state.pageState.totalPages = Math.ceil(
-        action.payload.data.length / action.payload.limit
-      );
+      // state.pageState.totalPages = Math.ceil(
+      //   action.payload.data.length / action.payload.limit
+      // );
+      state.pageState.totalPages = action.payload.totalPages;
       state.pageState.page = 1;
     });
   },

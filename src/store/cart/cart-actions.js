@@ -1,18 +1,14 @@
-import axios from "axios";
 import { getCookie } from "../../utils/cookies";
 import cartSlice from "./cart-slice";
 import uiSlice from "../ui/ui-slice";
-import { FIRE_BASE_DB } from "../../utils/constants";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchHandler = async () => {
       let sessionid = getCookie("sessionid");
-      const res = await axios.get(
-        FIRE_BASE_DB + "/sessions/" + sessionid + "/cart.json"
-      );
+      const res = await SERVER_API.getCartData(sessionid);
       const data = res.data;
-
       return data;
     };
     try {
@@ -43,10 +39,8 @@ export const sendCartData = (cart) => {
     const sendRequest = async () => {
       let sessionid = getCookie("sessionid");
       dispatch(cartSlice.actions.changedOff());
-      await axios.put(
-        FIRE_BASE_DB + "/sessions/" + sessionid + "/cart.json",
-        JSON.stringify(cart)
-      );
+      await SERVER_API.putCartData(sessionid, cart);
+
       dispatch(
         uiSlice.actions.showNotification({
           open: true,

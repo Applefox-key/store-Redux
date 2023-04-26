@@ -1,20 +1,13 @@
-import axios from "axios";
 import userSlice from "./user-slice";
 import uiSlice from "../ui/ui-slice";
-import { FIRE_BASE_DB, SESSION_ID } from "../../utils/constants";
 import authSlice from "../auth/auth-slice";
 import cartSlice from "../cart/cart-slice";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const getUserData = () => {
   return async (dispatch) => {
     const fetchHandler = async () => {
-      const dataReq = await axios.get(
-        `${FIRE_BASE_DB}/sessions/${SESSION_ID}/user.json`
-      );
-      if (!dataReq.data) return "";
-      const userid = dataReq.data;
-      const res = await axios.get(`${FIRE_BASE_DB}/users/${userid}/user.json`);
-      const data = res.data;
+      const data = await SERVER_API.getUserData();
       return data;
     };
     try {
@@ -38,11 +31,7 @@ export const getUserData = () => {
 export const sendUserData = (user) => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      const userid = user.profile.id;
-      await axios.put(
-        `${FIRE_BASE_DB}/users/${userid}/user.json`,
-        JSON.stringify(user)
-      );
+      await SERVER_API.sendUserData(user);
       dispatch(userSlice.actions.changedOff());
       dispatch(
         uiSlice.actions.showNotification({
@@ -68,23 +57,17 @@ export const sendUserData = (user) => {
 export const placeAnOrder = (order) => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      const userid = order.shipmentSettings.id;
-      const orderId = crypto.randomUUID();
+      // const userid = order.shipmentSettings.id;
+      // const orderId = crypto.randomUUID();
       const new_order = {
-        "id": orderId,
         "list": order.itemsList,
         "totalPrice": order.totalPrice,
         "state": "processing",
         "dateTime": Date.now(),
         "shipmentSettings": order.shipmentSettings,
       };
-      //send order to the server -and get an order id from a real server
-      await axios.put(
-        `${FIRE_BASE_DB}/users/${
-          userid ? userid + "/user" : "GUESTS"
-        }/orders/${orderId}.json`,
-        JSON.stringify(new_order)
-      );
+      const orderId = await SERVER_API.placeAnOrder(new_order);
+      new_order.id = orderId;
       //empty the cart
       dispatch(cartSlice.actions.placeOrder());
       //add new order to the redux store

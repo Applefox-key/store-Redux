@@ -7,7 +7,6 @@
   margin-left: auto;
   margin-right: auto;
   background-color: rebeccapurple;
-  // background-color: white;
   border-radius: 15px;
 
 
@@ -55,9 +54,7 @@ input {
 .user-login-form {
   width: 400px;
   margin: auto;
-  // background-color: aliceblue;
   border-radius: 15px;
-  // border: 1px solid red;
   text-align: center;
   padding: 10px;
 
@@ -98,23 +95,7 @@ input {
     }
   }
 
-  // button {
-
-  //   background-color: #3d3daf;
-  //   background: #26a843;
-
-  //   width: 100%;
-  //   transition: all 0.4s ease-in-out;
-
-  //   &:hover {
-  //     transform: translateY(-5px);
-  //     background-color: #4e4efd;
-  //     background-color: #9DD458;
-  //   }
-
-  //   &:disabled {
-  //     background-color: #dadada;
-  //   }
-
-  // }
+  @media (max-width: 900px) {
+    width: 80vw;
+  }
 }

@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { FAKE_DB } from "../../utils/constants";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const getCategories = createAsyncThunk(
   "categories/getCategories",
   async (_, thunkAPI) => {
     try {
-      const res = await axios(FAKE_DB + "/categories");
+      const res = await SERVER_API.getCategories();
       return res.data;
     } catch (error) {
       thunkAPI.rejectWithValue(error);

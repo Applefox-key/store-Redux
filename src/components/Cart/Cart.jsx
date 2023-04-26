@@ -59,7 +59,7 @@ const Cart = () => {
               </div>
             </>
           ) : (
-            <EmptyCart orderPlaced={cart.orderPlaced} closeCart={closeCart} />
+            <EmptyCart closeCart={closeCart} />
           )}
         </div>
       </div>

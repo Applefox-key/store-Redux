@@ -9,6 +9,9 @@ import EditProfileForm from "../User/EditProfileForm";
 import Auth from "../User/Auth";
 import BtnToHome from "../UI/BtnToHome";
 import { placeAnOrder } from "../../store/user/user-actions";
+import { isAllValuesFilled } from "../../utils/validation";
+import { orderShipmentStruct } from "../../utils/userDataStruct";
+import uiSlice from "../../store/ui/ui-slice";
 
 const NewOrderPage = () => {
   const [modal, setModal] = useState();
@@ -26,6 +29,16 @@ const NewOrderPage = () => {
     setUserData(profile);
   };
   const placeNewOrder = () => {
+    const [isValid, errorMsg] = isAllValuesFilled(
+      userData,
+      orderShipmentStruct
+    );
+    if (!isValid) {
+      dispatch(
+        uiSlice.actions.showNotification({ message: errorMsg, type: "error" })
+      );
+      return;
+    }
     dispatch(placeAnOrder({ ...cart, "shipmentSettings": userData })).then(
       (orderId) => {
         router(allRouts.ORDERS + "/" + orderId);

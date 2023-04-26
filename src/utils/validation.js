@@ -2,9 +2,16 @@ export const isAllValuesFilled = (data, dataStruct) => {
   let errorMsg = "";
   const formFields = Object.keys(data);
   formFields.forEach((element) => {
-    if (!dataStruct[element].optional && !data[element])
-      errorMsg += `the required field is empty  ${element}  `;
+    if (
+      dataStruct.hasOwnProperty(element) &&
+      !dataStruct[element].optional &&
+      !data[element]
+    )
+      errorMsg += errorMsg
+        ? `, ${dataStruct[element].label}`
+        : `the required field is empty:  ${dataStruct[element].label}`;
   });
+
   return [!errorMsg, errorMsg];
 };
 export const isEmailValid = (value) => {

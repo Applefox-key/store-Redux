@@ -1,15 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { FAKE_DB } from "../../utils/constants";
-import { makeUrl } from "../../utils/query_url";
+import { SERVER_API } from "../../utils/serwerRequests";
 
 export const getItemsBatch = createAsyncThunk(
   "items/getItemsBatch",
   async (atr, thunkAPI) => {
     try {
-      const res = await axios.get(
-        `${FAKE_DB}/products/${makeUrl({ ...atr, isAll: false })}`
-      );
+      const res = await SERVER_API.getProducts(atr);
       return { data: res.data, offset: atr.offset };
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

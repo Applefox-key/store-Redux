@@ -122,7 +122,7 @@ const Auth = () => {
         </div>
       )}
       <button
-        className="colorbtnLg"
+        className="colorbtnLg w-100"
         onClick={handleSubmit}
         disabled={errors.length}>
         {isNew ? "SUBMIT" : "LOGIN"}
